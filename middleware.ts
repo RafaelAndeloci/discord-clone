@@ -4,13 +4,14 @@ import {
   createRouteMatcher,
 } from "@clerk/nextjs/server";
 
-const isAuthenticationRoute = createRouteMatcher([
+const isPublicRoute = createRouteMatcher([
   "/sign-in(.*)",
   "/sign-up(.*)",
+  "/api/uploadthing(.*)",
 ]);
 
 export default clerkMiddleware((auth, req) => {
-  if (!isAuthenticationRoute(req)) auth().protect();
+  if (!isPublicRoute(req)) auth().protect();
 });
 
 export const config = {
