@@ -1,5 +1,7 @@
 "use client";
 
+import axios from "axios";
+
 import {
   Dialog,
   DialogClose,
@@ -31,6 +33,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FileUpload } from "@/components/file-upload";
 import { FileDiff } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -53,6 +56,7 @@ export const InitialModal = () => {
   //   return null
   // }
 
+  const router = useRouter();
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,7 +68,16 @@ export const InitialModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: FormSchema) => {
-    console.log(values);
+    try {
+      await axios.post("/api/servers", values);
+
+      form.reset();
+
+      router.refresh();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
