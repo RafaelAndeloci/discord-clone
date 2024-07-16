@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <div className="">
-      <p>Discord Clone</p>
-
-      <Button>Click me</Button>
+    <div>
+      <UserButton />
     </div>
   );
 }

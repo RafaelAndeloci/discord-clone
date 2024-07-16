@@ -9,6 +9,7 @@ import {
   SignOutButton,
 } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -25,19 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={openSans.className}>
-          <SignedOut>
-            <Button asChild>
-              <SignInButton />
-            </Button>
-          </SignedOut>
-          <SignedIn>
-            <Button asChild>
-              <SignOutButton />
-            </Button>
-          </SignedIn>
-          {children}
-        </body>
+        <body className={openSans.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
