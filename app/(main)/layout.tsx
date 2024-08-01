@@ -1,4 +1,4 @@
-import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
+import { NavigationSidebar } from '@/components/navigation/navigation-sidebar'
 
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,7 +8,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
       </div>
       <main className="md:pl-[72px] h-full">{children}</main>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

@@ -1,4 +1,4 @@
-import { ServerSidebar } from '@/components'
+import { ServerSidebar } from '@/components/server/server-sidebar'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { auth } from '@clerk/nextjs/server'

@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import React from "react";
+} from '@/components/ui/tooltip'
+import React from 'react'
 
 interface ActionToolTipProps {
-  label: string;
-  children: React.ReactNode;
-  side?: "top" | "right" | "bottom" | "left";
-  align?: "start" | "center" | "end";
+  label: string
+  children: React.ReactNode
+  side?: 'top' | 'right' | 'bottom' | 'left'
+  align?: 'start' | 'center' | 'end'
 }
 
 export const ActionTooltip = ({
@@ -33,5 +33,5 @@ export const ActionTooltip = ({
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-  );
-};
+  )
+}

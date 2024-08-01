@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components'
+} from '@/components/ui/dropdown-menu'
 import { ServerWithMembersWithProfiles } from '@/types'
 import { MemberRole } from '@prisma/client'
 import {

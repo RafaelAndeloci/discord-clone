@@ -1,50 +1,44 @@
-"use client";
+'use client'
 
-import axios from "axios";
+import axios from 'axios'
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogOverlay,
-  DialogPortal,
   DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+} from '@/components/ui/dialog'
 
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form'
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FileUpload } from "@/components/file-upload";
-import { FileDiff } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { FileUpload } from '@/components/file-upload'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Server name is required.",
+    message: 'Server name is required.',
   }),
   imageUrl: z.string().min(1, {
-    message: "Server image is required.",
+    message: 'Server image is required.',
   }),
-});
+})
 
-type FormSchema = z.infer<typeof formSchema>;
+type FormSchema = z.infer<typeof formSchema>
 
 export const InitialModal = () => {
   // const [isMounted, setIsMounted] = useState(false)
@@ -56,29 +50,29 @@ export const InitialModal = () => {
   //   return null
   // }
 
-  const router = useRouter();
+  const router = useRouter()
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      imageUrl: "",
+      name: '',
+      imageUrl: '',
     },
-  });
+  })
 
-  const isLoading = form.formState.isSubmitting;
+  const isLoading = form.formState.isSubmitting
 
   const onSubmit = async (values: FormSchema) => {
     try {
-      await axios.post("/api/servers", values);
+      await axios.post('/api/servers', values)
 
-      form.reset();
+      form.reset()
 
-      router.refresh();
-      window.location.reload();
+      router.refresh()
+      window.location.reload()
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   return (
     <Dialog open>
@@ -135,7 +129,7 @@ export const InitialModal = () => {
               />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button variant={"primary"} disabled={isLoading}>
+              <Button variant={'primary'} disabled={isLoading}>
                 Create
               </Button>
             </DialogFooter>
@@ -143,6 +137,5 @@ export const InitialModal = () => {
         </Form>
       </DialogContent>
     </Dialog>
-  );
-};
-
+  )
+}
