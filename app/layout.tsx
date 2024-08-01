@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider afterSignOutUrl={"/"}>
       <html lang="en" suppressHydrationWarning>
         <body className={cn(openSans.className, "bg-white dark:bg-[#313338]")}>
           <ThemeProvider
@@ -42,4 +42,3 @@ export default function RootLayout({
     </ClerkProvider>
   );
 }
-
