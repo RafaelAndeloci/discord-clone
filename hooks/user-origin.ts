@@ -1,0 +1,12 @@
+
+export const useOrigin = () => {
+  // const [, setIsMounted] = useState(false)
+
+  // useEffect(() => {
+  //   setIsMounted(true)
+  // }, [])
+
+  const origin = typeof window !== "undefined" && window.location.origin ? window.location.origin : ""
+
+  return origin
+}
