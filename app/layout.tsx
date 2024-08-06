@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 // eslint-disable-next-line camelcase
+import { QueryProvider } from '@/components/providers/query-provider';
 import { SocketProvider } from '@/components/providers/socket-provider';
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
@@ -32,7 +33,7 @@ export default function RootLayout({
           >
             <SocketProvider>
               <ModalProvider />
-              {children}
+              <QueryProvider>{children}</QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </body>
