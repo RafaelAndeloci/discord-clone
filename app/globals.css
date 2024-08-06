@@ -67,7 +67,7 @@ body,
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border custom-scrollbar;
   }
   body {
     @apply bg-background text-foreground;
